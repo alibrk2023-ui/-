@@ -1,4 +1,4 @@
-import { Events } from "discord.js";
+import { Events, ActivityType } from "discord.js";
 import { logger, startupLog } from "../utils/logger.js";
 import config from "../config/application.js";
 import { reconcileReactionRoleMessages } from "../services/reactionRoleService.js";
@@ -12,7 +12,11 @@ export default {
 
   async execute(client) {
     try {
-      client.user.setPresence(config.bot.presence);
+      // تعيين الحالة والنشاط بشكل مباشر (Playing By Cryot)
+      client.user.setPresence({
+        activities: [{ name: "By Cryot", type: ActivityType.Playing }],
+        status: "online",
+      });
 
       startupLog(`Ready! Logged in as ${client.user.tag}`);
       startupLog(`Serving ${client.guilds.cache.size} guild(s)`);
