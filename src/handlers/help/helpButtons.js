@@ -43,7 +43,7 @@ export const helpBugReportButton = {
         const githubButton = new ButtonBuilder()
             .setLabel('🐛 خمتو  انا انا  مشي  مرون  عطي    انا  كريوت  ')
             .setStyle(ButtonStyle.Link)
-            .setURL('https://github.com/codebymitch/TitanBot/issues');
+            .setURL('احبك');
 
         const bugRow = new ActionRowBuilder().addComponents(githubButton);
 
