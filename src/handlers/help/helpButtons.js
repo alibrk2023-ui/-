@@ -41,9 +41,9 @@ export const helpBugReportButton = {
     name: BUG_REPORT_BUTTON_ID,
     async execute(interaction, client) {
         const githubButton = new ButtonBuilder()
-            .setLabel('🐛 خمتو  انا انا  مشي  مرون  عطي    انا  كريوت  ')
+            .setLabel('🐛 Report Bug on GitHub')
             .setStyle(ButtonStyle.Link)
-            .setURL('احبك');
+            .setURL('https://ام');
 
         const bugRow = new ActionRowBuilder().addComponents(githubButton);
 
