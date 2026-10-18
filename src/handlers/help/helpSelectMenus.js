@@ -14,7 +14,7 @@ const BACK_BUTTON_ID = "help-back-to-main";
 const ALL_COMMANDS_ID = "help-all-commands";
 const PAGINATION_PREFIX = "help-page";
 const CATEGORY_SELECT_ID = "help-category-select";
-const FOOTER_TEXT = "Made with ❤️";
+const FOOTER_TEXT = "Made with ❤️ - Discord: https://discord.gg/CdGddfWQZq | YouTube: https://youtube.com/@top_labowi?si=HVHzdR5ORvlWwxJT";
 const SUBCOMMAND_TYPE = 1;
 const SUBCOMMAND_GROUP_TYPE = 2;
 
@@ -114,8 +114,8 @@ function normalizeCommandData(command) {
         ...jsonData,
         options: Array.isArray(jsonData.options)
             ? jsonData.options.map((option) =>
-                  typeof option?.toJSON === 'function' ? option.toJSON() : option,
-              )
+                typeof option?.toJSON === 'function' ? option.toJSON() : option,
+            )
             : [],
     };
 }
