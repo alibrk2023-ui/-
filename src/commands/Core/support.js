@@ -7,7 +7,7 @@ const SUPPORT_SERVER_URL = "https://discord.gg/CdGddfWQZq";
 export default {
     data: new SlashCommandBuilder()
     .setName("support")
-    .setDescription("Get link to the  كريوت  معضل  "),
+    .setDescription("Get link to the support server"),
 
   async execute(interaction) {
     try {
