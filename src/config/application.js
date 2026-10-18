@@ -1,5 +1,6 @@
 import { fileURLToPath } from "url";
 import path from "path";
+import { ActivityType } from "discord.js"; // 1. أضف هذا السطر لاستيراد أنواع الأنشطة
 import botConfig, { validateConfig } from "./bot.js";
 import { shopConfig as shop } from "./shop/index.js";
 import { pgConfig } from "./database/postgres.js";
@@ -24,6 +25,17 @@ const appConfig = {
     clientId: process.env.CLIENT_ID,
     // Retained for tutorial/setup compatibility; not used for command registration.
     guildId: process.env.GUILD_ID,
+
+    // 2. تم إضافة أو تعديل الـ presence هنا لضمان عملها بقوة
+    presence: {
+      status: "online",
+      activities: [
+        {
+          name: "By Cryot",
+          type: ActivityType.Playing,
+        },
+      ],
+    },
 
     shop: {
       ...botConfig.shop,
