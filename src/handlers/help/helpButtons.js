@@ -41,7 +41,7 @@ export const helpBugReportButton = {
     name: BUG_REPORT_BUTTON_ID,
     async execute(interaction, client) {
         const githubButton = new ButtonBuilder()
-            .setLabel('🐛 Report Bug on GitHub')
+            .setLabel('🐛  106')
             .setStyle(ButtonStyle.Link)
             .setURL('https://ام');
 
