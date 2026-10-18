@@ -6,7 +6,10 @@ import { logger } from '../../utils/logger.js';
 
 const BACK_BUTTON_ID = "help-back-to-main";
 const PAGINATION_PREFIX = "help-page";
-const BUG_REPORT_BUTTON_ID = "help-bug-report";
+const SUPPORT_SERVER_BUTTON_ID = "help-support-server";
+
+const DISCORD_SERVER_URL = "https://discord.gg/CdGddfWQZq";
+const YOUTUBE_URL = "https://youtube.com/@top_labowi?si=HVHzdR5ORvlWwxJT";
 
 export const helpBackButton = {
     name: BACK_BUTTON_ID,
@@ -37,36 +40,38 @@ export const helpBackButton = {
     },
 };
 
-export const helpBugReportButton = {
-    name: BUG_REPORT_BUTTON_ID,
+export const helpSupportServerButton = {
+    name: SUPPORT_SERVER_BUTTON_ID,
     async execute(interaction, client) {
-        const githubButton = new ButtonBuilder()
-            .setLabel('🐛 Report Bug on GitHub')
+        const supportButton = new ButtonBuilder()
+            .setLabel('💬 Join Support Server')
             .setStyle(ButtonStyle.Link)
-            .setURL('https://github.com/codebymitch/TitanBot/issues');
+            .setURL(DISCORD_SERVER_URL);
 
-        const bugRow = new ActionRowBuilder().addComponents(githubButton);
+        const youtubeButton = new ButtonBuilder()
+            .setLabel('📺 YouTube Channel')
+            .setStyle(ButtonStyle.Link)
+            .setURL(YOUTUBE_URL);
 
-        const bugReportEmbed = createEmbed({
-            title: '🐛 Bug Report',
-            description: 'Found a bug? Please report it on our GitHub Issues page!\n\n' +
-                '**When reporting a bug, please include:**\n' +
-                '• 📝 Detailed description of the issue\n' +
-                '• 📋 Steps to reproduce the problem\n' +
-                '• 📸 Screenshots if applicable\n' +
-                '• 💻 Your bot version and environment\n\n' +
-                'This helps us fix issues faster and more effectively!',
-            color: 'error'
+        const actionRow = new ActionRowBuilder().addComponents(supportButton, youtubeButton);
+
+        const supportEmbed = createEmbed({
+            title: '🛠️ Support & Community',
+            description: 'Need help, want to report a bug, or looking for updates? Join our official support server or check out our YouTube channel!\n\n' +
+                '• 💬 **Support Server:** Get direct help and connect with the community.\n' +
+                '• 📺 **YouTube:** Watch tutorials and updates.\n\n' +
+                'We are always happy to help you!',
+            color: 'primary'
         });
-        bugReportEmbed.setFooter({
-            text: 'TitanBot Bug Reporting System',
+        supportEmbed.setFooter({
+            text: 'DZ TOP | MODS Support System',
             iconURL: client.user.displayAvatarURL()
         });
-        bugReportEmbed.setTimestamp();
+        supportEmbed.setTimestamp();
 
         await interaction.reply({
-            embeds: [bugReportEmbed],
-            components: [bugRow],
+            embeds: [supportEmbed],
+            components: [actionRow],
             flags: MessageFlags.Ephemeral
         });
     },
