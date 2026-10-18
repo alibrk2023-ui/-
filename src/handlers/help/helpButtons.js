@@ -41,7 +41,7 @@ export const helpBugReportButton = {
     name: BUG_REPORT_BUTTON_ID,
     async execute(interaction, client) {
         const githubButton = new ButtonBuilder()
-            .setLabel('🐛 Report Bug on GitHub')
+            .setLabel('🐛 خمتو  انا انا  مشي  مرون  عطي    انا  كريوت  ')
             .setStyle(ButtonStyle.Link)
             .setURL('https://github.com/codebymitch/TitanBot/issues');
 
